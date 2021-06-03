@@ -36,6 +36,16 @@ Route::group(['prefix' => 'users'], function () {
 });
 
 
+Route::group(['prefix' => 'posts'], function () {
+    Route::get('/', 'PostController@index1')->name('post.index');
+
+        Route::group(['prefix' => '{posts}'], function () {
+        Route::get('/edit','PostController@edit')->name('post.edit');
+        Route::patch('/update','Postcontroller@update')->name('post.update');
+        Route::get('/delete','PostController@delete')->name('post.delete');
+        Route::delete('destroy','PostController@destroy')->name('post.destroy');
+    
+});
 
 
 require __DIR__.'/auth.php';

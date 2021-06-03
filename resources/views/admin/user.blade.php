@@ -1,3 +1,8 @@
+@extends('layouts.admin.master')
+@section('title','dash')
+@section('sidebar')
+<h3>Hi Welcome</h3>
+@section('content')
 <div class="card-body">
     @if (session('success'))
     <div class="alert alert-warning">
@@ -34,3 +39,4 @@
 </div>
 </div>
 </div>
+@endsection

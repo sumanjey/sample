@@ -37,4 +37,9 @@ class PostController extends Controller
         $user->delete();
         return redirect()->route('index')->with('success', 'User  details has been deleted successfuly!');
     }
+
+    public function index1(){
+        $posts = post::with('user')->orderBy('id', 'desc')->paginate(12);
+        return view('admin.post.index',compact('posts')); 
+    }    
 }
