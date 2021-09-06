@@ -17,7 +17,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname','nic','email','password','role_id',
+        'firstname','lastname','email','password','role_id',
+    ];
+
+    protected $appends =[
+        'post_count',
     ];
 
     /**
@@ -45,5 +49,14 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class,'role_id');
+    }
+
+    public function postcomments(){
+        return $this->belongsToMany(Post::class,'post_user')->withPivot(['comment'])->withTimestamps();
+    }
+
+    public function getPostCountAttribute(){
+        //return $this->posts()->count;
+        return $this->hasmany(Post::class,'count');
     }
 }

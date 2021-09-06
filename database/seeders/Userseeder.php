@@ -16,14 +16,11 @@ class Userseeder extends Seeder
      */
     public function run()
     {
-
-
-
         DB::table('users')->insert([
             'firstname' => 'Tharsan',
             'lastname' => 'Gunasingam',
             'email' => 'abc@gmail.com',
-            'nic' => 123,
+           // 'nic' => 123,
             'role_id' => 1,
             'password' => Hash::make(12345678),
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Request\Admin;
+namespace App\Http\Requests\Admin;
 
-use Illuminate\Foundation\Http\FormRequest
+use Illuminate\Foundation\Http\FormRequest;
 
 class PostStoreRequest extends FormRequest
 {
@@ -23,10 +23,9 @@ class PostStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'wp_id' => 'required',
-            'wp_name' => 'required',
-            'grade' => 'required',
-            'wp_phoneno' => 'required',
+            'heading' =>'required',
+            'content' =>'required',
+            'created_at' =>'nullable'             
         ];
     }
 }

@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->foreignId('user_id');
             $table->string('heading');
             $table->string('content');
-            $table->decimal('salary',13,2);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
