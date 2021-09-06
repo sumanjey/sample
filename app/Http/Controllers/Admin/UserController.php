@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function index(){
-        $this->authorize('index',new User);
+       // $this->authorize('index',new User);
         $q = request()->input('q');
         if($q){
             $users =User::where('firstname','like',"%{$q}%")->orwhere('lastname','like',"%{$q}%")->orwhere('id','like',"%{$q}")->with('role')->orderBy('id', 'desc')->paginate(12);
